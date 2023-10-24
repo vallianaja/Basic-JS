@@ -28,6 +28,7 @@
 
         .container {
             width: 100vw;
+            padding: 110px;
             background: #000000;
             color: #ffffff;
             display: flex;
@@ -44,7 +45,13 @@
             justify-content: center;
             align-items: center;
             display: flex;
-            margin: 20px;
+            height: 10vh;
+            background: #034A10;
+            
+        }
+
+        .title-juz h1 {
+            color: #ffffff;
         }
 
         .row {
@@ -52,7 +59,7 @@
         }
 
         .tableIsi {
-            padding: 10px;
+            padding: 5px;
             border: 1px solid #ffffff;
         }
 
@@ -63,22 +70,32 @@
         .back-button a {
             padding: 20px;
             text-decoration: none;
-            color: #000000;
+            color: #fff;
             position: fixed;
             top: 10px;
             left: 20px;
-            background: #ffffff;
+            background: #034A10;
             border-radius: 50%;
         }
 
         .back-button a:hover {
-            background: #ffffff80;
+            background: #034A1099;
+        }
+        
+        footer {
+            background: #034A10;
+            color: #ffffff;
+            height: 5vh;
+            width: 100%;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
         <div class="title-juz">
             <h1>Table 30 Juz</h1>
@@ -101,6 +118,10 @@
             </tbody>
         </table>
     </div>
+
+    <footer>
+        <p>Al-Quran Web created by Vallian</p>
+    </footer>
 
     <script>
         // Ini adalah Challenge dari kak Fahmi
