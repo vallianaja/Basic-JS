@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .hero{
+            width: 100vw;
+            height: 20vh;
+            background-color: wheat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .countainer{
+            width: 100vw;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: wheat;
+        }
+        .kotak{
+            width: 72vw;
+            height: 14vh;
+            background-color: white;
+            justify-content: center;
+            display: flex;
+            border-radius: 20px;
+            align-items: center;
+            border: 4px solid black;
+        }
+        .card{
+            width: 15vw;
+            height: 30vh;
+            background-color: white;
+            border-radius: 15px;
+            border: 4px solid black;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+        .namaMakanan{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            font-family: "Signika Negative";
+        }
+        .gambarMakanan{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            background-color: peru;
+            width: 140px;
+            height: 40px;
+            margin-left: 39px;
+            border-radius: 5px;
+            font-family: "Patrick Hand";
+            border: 3px solid black;
+        }
+        .gambarr{
+            border-radius: 7px;
+            border: 4px solid black;
+        }
+        .textJudul{
+            color: black;
+            font-size: 3em;
+        }
+
+        .countainer2{
+            width: 100vw;
+            height: 40vh;
+            background-color: crimson;
+        }
+        .countainer2{
+            width: 100vw;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: wheat;
+        }
+        .kotak2{
+            width: 72vw;
+            height: 14vh;
+            background-color: white;
+            justify-content: center;
+            display: flex;
+            border-radius: 20px;
+            align-items: center;
+            border: 4px solid black;
+        }
+        .textJudul{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero" id="hero"></div>
+    <div class="countainer" id="countainer">
+        <div class="kotak" id="kotak">
+        </div>
+    </div>
+    <div class="countainer2" id="countainer2">
+        <div class="kotak2" id="kotak2"></div>
+    </div>
+
+    <script>
+        var juddul = "Pal's Resto";
+
+        const judul = document.getElementById('hero');
+
+        const text = document.createElement('h1');
+        text.innerText = juddul;
+        text.classList.add('textJudul');
+
+        hero.append(text);
+
+        // kard makanan dll
+        var lorem = "Pesan Sekarang";
+
+        var area = document.getElementById('kotak');
+
+        var makanan = [
+            {nama : 'Bakso', gambar : 'https://asset-2.tstatic.net/suryamalang/foto/bank/images/ilustrasi-bakso-resep-bakso-enak-untuk-jualan-pakai-daging-sapi-atau-daging-ayam.jpg'},
+            {nama : 'Mie Ayam', gambar : 'https://cdn-image.hipwee.com/wp-content/uploads/2017/05/hipwee-MIE-AYAM-PANGSIT-GORENG-BAKSO-750x422.jpg'},
+            {nama : 'Steak', gambar : 'https://asset-2.tstatic.net/bogor/foto/bank/images/WS-steak.jpg'},
+            {nama : 'Ice Cream', gambar : 'https://cdn0-production-images-kly.akamaized.net/MdfdCxyRSUslx5B3eluCqntQKWM=/1x12:1000x575/1200x675/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3531550/original/037971900_1628133924-shutterstock_1121213162.jpg'},
+        ];
+
+        makanan.forEach(isi =>{
+            var card = document.createElement('div');
+            card.classList.add('card');
+
+            var nama = document.createElement('h2');
+            nama.innerText = isi.nama;
+            nama.classList.add('namaMakanan');
+
+            var gambar = document.createElement('div');
+            var url = document.createElement('img');
+            url.src = isi.gambar;
+            url.width = 180;
+            gambar.classList.add('gambarMakanan');
+            url.classList.add('gambarr');
+
+            var button = document.createElement('h3');
+            button.innerText = lorem;
+            button.classList.add('button');
+
+            area.append(card);
+            card.append(nama);
+            card.append(gambar);
+            gambar.append(url);
+            card.append(button);
+        })
+
+        
+
+    </script>
+    </body>
+</html>

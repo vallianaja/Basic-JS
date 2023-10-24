@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple DOM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        hr {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="date">Tanggal Hari Ini</h1>
+    <h2 class="tagline"></h2>
+
+    <hr>
+
+    <div id="container">
+        <p class="text-title"></p>
+        <p class="text-title"></p>
+        <p class="text-title"></p>
+        <p class="text-title"></p>
+    </div>
+    
+
+    <script>
+
+        // get element => Mengambil ID ataupun class yang ada di HTML.
+
+        // untuk memanggil taggal html
+        let tanggal = Date()
+        // untuk memanggil document html yang idnya adalah date dan cara styling di JS
+        var textDate = document.getElementById('date')
+        textDate.style.textShadow = '0px 0px 10px #0088cc'
+        textDate.style.color = '#0000ff'
+        textDate.innerHTML = tanggal
+        let tg = document.getElementsByClassName('tagline')[0]
+        tg.innerHTML = "Hari ini adalah hari Jum'at"
+
+        // ini yang id container
+        let area = document.getElementById('container');
+        area.style.backgroundColor = '#0088cc30'
+        area.style.width = '100vw'
+        area.style.height = '100vh'
+
+        area.getElementsByClassName('text-title')[0].innerHTML = "Saya sedang belajar Javascript"
+        area.getElementsByClassName('text-title')[1].innerHTML = "Materinya adalah DOM"
+        area.getElementsByClassName('text-title')[2].innerHTML = "Insya Allah Dipermudahkan oleh Allah"
+        area.getElementsByClassName('text-title')[3].innerHTML = "Amiinn"
+
+        // document.querySelector('.text-title').innerHTML = 'Saya belajar JS'
+    </script>
+</body>
+</html>

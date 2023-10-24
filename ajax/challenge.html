@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Surat-Surat</title>
+    <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato';
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #000000;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100vw;
+            background: #000000;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        thead th {
+            padding: 20px 5px;
+            border: 2px solid #ffffff;
+            border-radius: 4px;
+        }
+
+        .title-juz {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin: 20px;
+        }
+
+        .row {
+            text-align: center;
+        }
+
+        .tableIsi {
+            padding: 10px;
+            border: 1px solid #ffffff;
+        }
+
+        .tableRecite {
+            padding: 5px;
+        }
+
+        .back-button a {
+            padding: 20px;
+            text-decoration: none;
+            color: #000000;
+            position: fixed;
+            top: 10px;
+            left: 20px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .back-button a:hover {
+            background: #ffffff80;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title-juz">
+            <h1>30 Juz Al-Quran By : Vallian</h1>
+        </div>
+        <div class="back-button">
+            <a href="home-challenge.html">Back</a>
+        </div>
+        <table>
+            <thead>
+                <th>Nama Surah</th>
+                <th>Arti Nama Surah</th>
+                <th>Jumlah Ayat</th>
+                <th>Nomor Surah</th>
+                <th>Tempat Diturunkannya</th>
+                <th>Audio Bacaan</th>
+                <th>Tipe Surah</th>
+            </thead>
+            <tbody id="list-data">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Ini adalah Challenge dari kak Fahmi
+
+        const api = 'https://raw.githubusercontent.com/penggguna/QuranJSON/master/quran.json'
+        const listData = document.getElementById('list-data');
+
+        fetch(api).then(response => response.json()).then((data => {
+
+            data.forEach(el => {
+                const row = document.createElement('tr');
+                row.classList.add('row')
+
+                const nama = document.createElement('td');
+                nama.textContent = el.name
+                nama.classList.add('tableIsi')
+
+                const banyakarti = el.name_translations
+                const tigaarti = banyakarti.id
+                const arti = document.createElement('td');
+                arti.textContent = tigaarti
+                arti.classList.add('tableIsi')
+
+                const numJumlah = document.createElement('td');
+                numJumlah.textContent = el.number_of_ayah
+                numJumlah.classList.add('tableIsi')
+
+                const numSurah = document.createElement('td');
+                numSurah.textContent = el.number_of_surah
+                numSurah.classList.add('tableIsi')
+
+                const tempat = document.createElement('td');
+                tempat.textContent = el.place
+                tempat.classList.add('tableIsi')
+
+                const recitation = document.createElement('audio')
+                recitation.src = el.recitation
+                recitation.controls = true
+                recitation.loop = true
+                recitation.classList.add('tableRecite')
+
+                const type = document.createElement('td');
+                type.textContent = el.type
+                type.classList.add('tableIsi')
+
+                listData.appendChild(row);
+                row.appendChild(nama);
+                row.appendChild(arti);
+                row.appendChild(numJumlah);
+                row.appendChild(numSurah);
+                row.appendChild(tempat);
+                row.appendChild(recitation);
+                row.appendChild(type);
+            });
+        }))
+    </script>
+
+</body>
+
+</html>

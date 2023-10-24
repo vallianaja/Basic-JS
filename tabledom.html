@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Produk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100vw;
+            display: flex;
+            /* justify-content: center; */
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5vw;
+        }
+
+        .table-produk {
+            width: 80%;
+            margin: 35px 10px;
+        }
+
+        .table-produk thead {
+            border: 3px solid #000000;
+        }
+
+        .btn-tambah {
+            width: 35%;
+            height: 40px;
+            background: transparent;
+            color: #000000;
+            border: 2px solid #000000;
+            transition: 0.5s, 0.2s transform;
+            border-radius: 5px;
+        }
+
+        .btn-tambah:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .btn-tambah:active {
+            transform: translateY(4px);
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <button class="btn-tambah" id="btn-tambah">
+            Tambah Baris
+        </button>
+        <table class="table-produk" id="table-produk">
+            <thead>
+                <th>Nama Barang</th>
+                <th>Harga Barang</th>
+                <th>Gambar Barang</th>
+                <th>Kategori Barang</th>
+            </thead>
+
+            <tbody id="data-produk"></tbody>
+        </table>
+    </div>
+
+    <script>
+        // Get Data
+        const data = [
+            {
+                nama: 'Macbook Pro 2024',
+                harga: 20000000,
+                gambar: 'https://photos5.appleinsider.com/gallery/48928-95680-MacBook-Air-Header-xl.jpg',
+                kategori: 'Laptop'
+            },
+            {
+                nama: 'Asus Pro 2022',
+                harga: 10000000,
+                gambar: 'https://www.yangcanggih.com/wp-content/uploads/2022/05/ASUS-Zenbook-Pro-14-Duo-OLED-2.webp',
+                kategori: 'Laptop'
+            },
+            {
+                nama: 'Pocophone X3',
+                harga: 1200000,
+                gambar: 'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1618314614.42498471.png',
+                kategori: 'Hanphone'
+            },
+            {
+                nama: 'Ipad Pro 6',
+                harga: 15000000,
+                gambar: 'https://cdn.eraspace.com/media/catalog/product/i/p/ipad_pro_gen_4_11_inci_wi-fi_cellular_space_grey_1_1.jpg',
+                kategori: 'Tablet'
+            },
+            {
+                nama: 'Charger Mac Magsafe',
+                harga: 1000000,
+                gambar: 'https://cdn.eraspace.com/media/catalog/product/a/p/apple_magsafe_charger-1.jpg',
+                kategori: 'Aksesoris'
+            },
+        ]
+        
+        const tableProduk = document.getElementById('data-produk');
+        
+        data.forEach(el => {
+            const row = document.createElement('tr');
+            const nama = document.createElement('td');
+            nama.innerText = el.nama;
+
+            const harga = document.createElement('td');
+            harga.innerText = el.harga;
+            
+            const gambar = document.createElement('td');
+            const url = document.createElement('img');
+            url.src = el.gambar;
+            url.width = 100;
+
+            const kategori = document.createElement('td');
+            kategori.innerText = el.kategori;
+
+            tableProduk.append(row);
+            row.append(nama);
+            row.append(harga);
+            row.append(gambar);
+            row.append(kategori);
+            gambar.append(url);
+        })
+
+        
+        // Insert Row Using addEventListener (Menambah Baris Baru Saat Tombol di Klik)
+        const tambah = document.getElementById('btn-tambah');
+        
+        tambah.addEventListener('click', function(){
+            
+            const barisBaru = document.createElement('tr');
+            const namaBaru = document.createElement('td');
+            namaBaru.innerText = 'Nama Produk Baru';
+
+            const hargaBaru = document.createElement('td');
+            hargaBaru.innerText = 'IDR 17000';
+
+            const gambarBaru = document.createElement('td');
+            const urlBaru = document.createElement('img');
+            urlBaru.src = 'https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1618314614.42498471.png';
+            urlBaru.width = 100;
+
+            const kategoriBaru = document.createElement('td');
+            kategoriBaru.innerText = 'Unknown';
+
+            tableProduk.appendChild(barisBaru);
+            barisBaru.appendChild(namaBaru);
+            barisBaru.appendChild(hargaBaru);
+            barisBaru.appendChild(gambarBaru);
+            gambarBaru.appendChild(urlBaru);
+            barisBaru.appendChild(kategoriBaru);
+
+        });
+
+    </script>
+
+</body>
+
+</html>

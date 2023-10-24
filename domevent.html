@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Dom</title>
+</head>
+<body>
+    
+    <button type="button" onclick="button()">Click Saya Juga</button>
+    <button type="button" id="tombol">Click Saya</button>
+    
+    <script>
+        const tombol = document.getElementById('tombol');
+        const tombolA = document.getElementById('tombolA');
+
+        // Event Handler (onclick, onfocus, etc)
+        function button(){
+            alert('Saya berhasil klik tombol A')
+        }
+
+        function button(){
+            console.log('Ini adalah hasil yang saya klik dari tombol A')
+        }
+        
+        // Event Listener
+        tombol.addEventListener('click', function(){
+            alert('Saya sudah berhasil klik')
+        })
+
+        tombol.addEventListener('click', function(){
+            console.log('Saya Berhasil Klik Tombolnya')
+        })
+
+    </script>
+</body>
+</html>

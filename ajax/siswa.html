@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Siswa JSON (API)</title>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <thead>
+                <th>Nama Lengkap</th>
+                <th>Kelas</th>
+                <th>Jurusan</th>
+                <th>Alamat</th>
+                <th>Instagram</th>
+            </thead>
+            <tbody id="list-data">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Method xhr API
+        // Method pertama adalah ini, method kedua ada di jadwalSholatApi.html
+
+        const xhr = new XMLHttpRequest();
+        const listData = document.getElementById('list-data');
+
+        xhr.open('GET', 'data.json');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Kita akan tampilkan datanya disini
+                const data = JSON.parse(xhr.responseText)
+
+                data.forEach(el => {
+                    const row = document.createElement('tr');
+
+                    const nama = document.createElement('td');
+                    nama.innerText = el.nama
+
+                    const kelas = document.createElement('td');
+                    kelas.innerText = el.kelas
+
+                    const jurusan = document.createElement('td');
+                    jurusan.innerText = el.jurusan
+
+                    const alamat = document.createElement('td');
+                    alamat.innerText = el.alamat
+
+                    const instagram = document.createElement('td');
+                    instagram.innerText = el.instagram
+
+                    listData.appendChild(row);
+                    row.appendChild(nama);
+                    row.appendChild(kelas);
+                    row.appendChild(jurusan);
+                    row.appendChild(alamat);
+                    row.appendChild(instagram);
+                })
+
+
+            } else {
+                alert('Data Gagal Dipanggil');
+            }
+        }
+        xhr.send();
+    </script>
+
+</body>
+
+</html>

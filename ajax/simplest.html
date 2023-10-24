@@ -1,0 +1,39 @@
+<!---------- Ajax (Asynchronous Javascript and XML) ---------->
+
+<!-- teknik pengiriman dan pengambilan data dari server tanpa perlu me-refresh seluruh halaman web.
+     Ini memungkinkan pembuatan aplikasi web yang lebih dinamis dan responsif. -->
+     
+<!-- XMLHttpRequest (XHR)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Ajax</title>
+</head>
+<body>
+    
+    <button id="generate">Generate Data</button>
+
+    <script>
+        const generate = document.getElementById('generate');
+
+        generate.addEventListener('click', function(){
+            const xhr = new XMLHttpRequest()
+            xhr.open('GET', 'https://64ffd20618c34dee0cd3fa8a.mockapi.io/user', true);
+
+            xhr.onload = function(){
+                if(xhr.status === 200){
+                    const data = JSON.parse(xhr.responseText)
+
+                    console.log(data[10])
+                } else {
+                    console.log('Datanya Gagal Diambil Coy')
+                }
+            };
+            xhr.send()
+        })
+    </script>
+</body>
+</html>

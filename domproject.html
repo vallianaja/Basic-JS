@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Api</title>
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito';
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background: #ff6f2c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 25vw;
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 15px 15px 5px #00000033;
+            margin: 15px;
+        }
+
+        .cardKelas {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 15px 15px 5px #00000033;
+            margin: 15px;
+        }
+
+        .cardKelas {
+            transition: 0.5s;
+        }
+
+        .cardKelas:hover {
+            transform: translateY(-40px) scale(1.1) rotate(10deg);
+        }
+
+        .kelasContent {
+            transition: 0.5s;
+            display: inline;
+        }
+
+        .kelasContent:hover {
+            letter-spacing: 2px;
+            cursor: pointer;
+            text-shadow: 0px 0px 25px #ff6f2c;
+            display: inline;
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-top: 15px;
+            line-height: 30px;
+            margin-bottom: 40px;
+        }
+
+        .button {
+            background: #ff6f2c;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.25s;
+        }
+
+        .button:hover {
+            background: #d05a24;
+            box-shadow: 0px 0px 20px #ff6f2c;
+        }
+
+        /* =================================== HERO ===================================== */
+        .hero {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ff6f2c, #af4514, #863510);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* =================================== ABOUT ===================================== */
+        .about {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to top, #ff6f2c, #af4514, #863510);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .kelas {
+            width: 100vw;
+            height: 100vh;
+            background: #ff6f2c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* =================================== KULINER ===================================== */
+        .kuliner {
+            width: 100vw;
+            height: 100vh;
+            background: #ff6f2c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cardMakanan {
+            padding: 15px 30px 25px 30px;
+            background-color: white;
+            border-radius: 15px;
+            border: 4px solid black;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .namaMakanan {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            font-family: "Signika Negative";
+        }
+
+        .gambarMakanan {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .buttonFood {
+            font-size: 18px;
+            background: #ff6f2c;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .gambarr {
+            border-radius: 7px;
+            border: 4px solid black;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="container"></div>
+    <div class="hero" id="hero"></div>
+    <div class="about" id="about"></div>
+    <div class="kelas" id="kelas"></div>
+    <div class="kuliner" id="kuliner"></div>
+
+    <script>
+        var lorem =
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, pariatur necessitatibus aut assumenda unde quo rem, neque esse modi eius iusto consequatur placeat eveniet nihil veniam. Optio beatae officiis a aperiam ipsam fugiat in, obcaecati explicabo doloremque blanditiis, ipsa, quisquam laborum ducimus voluptatem quo pariatur molestias! Perferendis eveniet asperiores qui, quibusdam beatae consectetur est rerum quam. Ea unde ad voluptas non consequuntur officia, dolorum magni fugiat quaerat corporis animi, provident, harum nulla temporibus.'
+
+        // DOM API Create Element
+
+        // Untuk Memanggil Element Container di HTML
+        const container = document.getElementById('container');
+
+        // Untuk Membuat Element div
+        const card = document.createElement('div');
+
+        // Untuk Menambahkan Class di Element Yang Sudah Kita Buat
+        card.classList.add('card');
+
+
+        // Untuk Membuat Element h2
+        const title = document.createElement('h2');
+        title.textContent = 'My Card';
+        title.style.fontSize = '35px';
+        title.style.marginBottom = '5px'
+        title.style.textAlign = 'center'
+
+        // Untuk Menambahkan Garis Horizontal
+        const garis = document.createElement('hr');
+        garis.style.border = '2px solid #ff6f2c';
+        garis.style.borderRadius = '1000px';
+
+        // Element Untuk Content
+        const isi = document.createElement('p');
+        isi.classList.add('content');
+        isi.textContent = lorem;
+        isi.style.textAlign = 'justify'
+
+        // Element Untuk Button
+        const button = document.createElement('a');
+        button.classList.add('button')
+        button.href = 'https://www.instagram.com/valsygch/'
+        button.textContent = 'Follow Me'
+
+        container.append(card);
+        card.append(title)
+        card.append(garis)
+        card.append(isi)
+        card.append(button)
+
+
+        // ================================= HERO ================================== // 
+        const hero = document.getElementById('hero');
+
+        const minuman = ['Mizone', 'Pocari Sweat', 'Aqua', 'Fanta', 'Sprite', 'Coca Cola'];
+
+        minuman.forEach((item) => {
+            const kartu = document.createElement('div');
+            kartu.classList.add('card');
+
+            const textDrink = document.createElement('h3');
+            textDrink.textContent = item;
+            textDrink.style.textAlign = 'center'
+
+            hero.append(kartu);
+            kartu.append(textDrink);
+        });
+
+
+        // ================================= ABOUT ================================== // 
+
+        // Memasukkan Element Image Kedalam Card
+        const about = document.getElementById('about');
+        const cardAbout = document.createElement('div');
+        cardAbout.classList.add('card');
+        cardAbout.style.height = 'auto';
+        cardAbout.style.padding = '53px 40px';
+
+        // Memasukkan Gambar Kedalam Card
+        const cardImage = document.createElement('img');
+        cardImage.classList.add('cardImage'); // Ini untuk membuat suatu class
+        cardImage.src = 'https://i2.wp.com/motomalaya.net/blog/wp-content/uploads/2022/10/kawasaki-zx-25r-2023-1.jpg?fit=1200%2C800&ssl=1';
+        cardImage.style.width = '100%';
+        cardImage.style.borderRadius = '15px';
+        cardImage.style.boxShadow = '0px 0px 25px #00ff00';
+        cardImage.style.border = '1px #00ff00 solid';
+
+        const cardContent = document.createElement('h4');
+        cardContent.classList.add('textImage');
+        cardContent.textContent =
+            'Kawasaki Ninja ZX-25R adalah sebuah sepeda motor sport bermesin 249 cc dengan konfigurasi 4 silinder segaris yang diproduksi oleh Kawasaki di Indonesia dan Thailand sebagai penerus dari Ninja ZX-2R/ZXR250 yang diproduksi antara tahun 1988 dan 1997.';
+        cardContent.style.display = 'block';
+        cardContent.style.marginTop = '13px';
+        cardContent.style.textAlign = 'justify';
+
+
+
+        about.append(
+            cardAbout
+        ); // Append itu seperti induknya yaitu about di append anaknya yaitu cardAbout, dan cardAbout append anaknya lagi yaitu cardImage
+        cardAbout.append(cardImage);
+        cardAbout.append(cardContent);
+
+
+        // ================================= Nama-Nama 10 RPL ================================== // 
+        // Memasukkan Element Image Kedalam Card
+        const kelas = document.getElementById('kelas');
+        kelas.style.display = 'flex'
+        kelas.style.flexWrap = 'wrap'
+        kelas.style.height = '100%'
+
+        const kelasrpl = [
+            "Ilyasa",
+            "Ammar",
+            "Andy",
+            "Arkan",
+            "Azka Azkia",
+            "Azka Savir",
+            "Faris",
+            "Firja",
+            "Mawaldy",
+            "Al Fathi Ahyan",
+            "Mauludy",
+            "Imamussajidin",
+            "Keenan",
+            "Naufal",
+            "Raihan",
+            "Reveeno",
+            "Rizqi",
+            "Vallian"
+        ];
+
+        kelasrpl.forEach((namaOrang) => {
+            const cardKelas = document.createElement('div');
+            cardKelas.classList.add('cardKelas');
+            cardKelas.style.width = '200px';
+            cardKelas.style.height = '230px';
+            cardKelas.style.justifyContent = 'center';
+            cardKelas.style.alignItems = 'center';
+
+            const kelasContent = document.createElement('h3');
+            kelasContent.classList.add('kelasContent');
+            kelasContent.textContent = namaOrang;
+            kelasContent.style.display = 'block';
+            kelasContent.style.textAlign = 'center';
+
+            const gambarOrang = document.createElement('img');
+            gambarOrang.classList.add('gambarOrang');
+            gambarOrang.src = 'https://static.thenounproject.com/png/2366459-200.png';
+            gambarOrang.style.width = '100%';
+            gambarOrang.style.marginTop = '10px';
+
+            const line = document.createElement('hr');
+            line.style.border = '2px solid #ff6f2c';
+            line.style.borderRadius = '1000px';
+            line.style.marginTop = '10px';
+
+            kelas.append(cardKelas);
+            cardKelas.append(kelasContent);
+            cardKelas.append(line)
+            cardKelas.append(gambarOrang);
+        })
+
+
+        // ================================= Makanan - Makanan Kuliner ================================== //
+        const textpesan = "Pesan Sekarang"
+        
+        const kuliner = document.getElementById('kuliner');
+
+        var makanan = [{
+                nama: 'Telor',
+                gambar: 'https://asset.kompas.com/crops/C3LVl3uOuPi8T9qx-rOnFWJZNrI=/0x0:998x665/750x500/data/photo/2021/03/25/605c078facd06.jpg'
+            },
+            {
+                nama: 'Indomie Goreng',
+                gambar: 'https://www.pinhome.id/pinhome-home-service/wp-content/uploads/2023/03/mie-goreng-6715015_640.jpg'
+            },
+            {
+                nama: 'Ayam Goreng',
+                gambar: 'https://www.astronauts.id/blog/wp-content/uploads/2023/04/Resep-Ayam-Goreng-Serundeng-ala-Rumahan-yang-Nggak-Kalah-Enak-dari-Restoran.jpg'
+            },
+            {
+                nama: 'Ice Cream',
+                gambar: 'https://blog.thermoworks.com/wp-content/uploads/2021/06/Ice_Cream_Compressed-43.jpg'
+            },
+        ];
+
+        makanan.forEach(isi => {
+            var cardfood = document.createElement('div');
+            cardfood.classList.add('cardMakanan');
+            cardfood.style.justifyContent = 'center'
+            cardfood.style.alignItems = 'center'
+            cardfood.style.display = 'flex'
+            cardfood.style.flexDirection = 'column'
+
+            var namafood = document.createElement('h2');
+            namafood.innerText = isi.nama;
+            namafood.classList.add('namaMakanan');
+
+            var gambarfood = document.createElement('div');
+            var url = document.createElement('img');
+            url.src = isi.gambar;
+            url.width = 180;
+            gambarfood.classList.add('gambarMakanan');
+            url.classList.add('gambarr');
+
+            var buttonfood = document.createElement('h3');
+            buttonfood.innerText = textpesan;
+            buttonfood.classList.add('buttonFood');
+            buttonfood.style.cursor = 'Pointer'
+
+            kuliner.append(cardfood);
+            cardfood.append(namafood);
+            cardfood.append(gambarfood);
+            gambarfood.append(url);
+            cardfood.append(buttonfood);
+        })
+    </script>
+</body>
+
+</html>
