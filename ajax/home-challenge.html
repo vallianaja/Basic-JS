@@ -21,14 +21,13 @@
         }
 
         body {
-            background: #000000;
+            background: #ffffff;
             max-width: 100%;
             overflow-x: hidden;
         }
 
         .nav {
-            background: #000000;
-            box-shadow: 0px 5px 20px #ffffff72;
+            background: #034A10;
             width: 100%;
             height: 10vh;
             z-index: 999;
@@ -39,6 +38,7 @@
             flex-wrap: wrap;
             font-family: "Rubik";
             font-weight: 100;
+            transition: 0.5s;
         }
 
         .nav ul li {
@@ -83,17 +83,16 @@
         .container img {
             width: 300px;
             margin-bottom: 20px;
-            margin-top: 10px;
+            margin-top: 50px;
         }
 
         .container h1 {
             font-size: 50px;
-            color: #ffffff;
-            text-shadow: 0px 0px 30px #ffffff;
+            color: #000000;
         }
 
         .container h3 {
-            color: #ffffff;
+            color: #000000;
             margin-top: 8px;
         }
 
@@ -104,22 +103,34 @@
         .clicks a {
             padding: 15px 25px;
             text-decoration: none;
-            color: #ffffff;
+            color: #034A10;
             background: transparent;
             margin: 10px;
-            border: 1px solid #ffffff;
+            border: 1.5px solid #034A10;
             border-radius: 100000px;
             transition: 0.4s, transform 0.2s;
             font-weight: 600;
         }
 
         .clicks a:hover {
-            background: #ffffff;
-            color: #000000;
+            background: #034A10;
+            color: #ffffff;
+            border: 1.5px solid #034A10;
         }
 
         .clicks a:active {
             transform: translateY(6px);
+        }
+
+        footer {
+            background: #034A10;
+            color: #ffffff;
+            height: 5vh;
+            width: 100%;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
         }
 
         @media only screen and (max-width: 620px) {
@@ -154,7 +165,7 @@
             .container h1 {
                 font-size: 20px;
             }
-            
+
             .container h3 {
                 font-size: 10px;
             }
@@ -177,6 +188,7 @@
         <ul>
             <li>
                 <a href="#home">Home</a>
+                <a href="#">About</a>
                 <a href="challenge.html">Table</a>
                 <a href="challenge-card.html">Card</a>
             </li>
@@ -186,15 +198,36 @@
     <div id="home">
         <div class="container">
             <img src="./images/quran.png" alt="Al-Quran">
-            <h1>Welcome To Al-Quran Table</h1>
+            <h1>Welcome To Al-Quran Web</h1>
             <h3>Here we learn about Al-Quran, read them, and hear them.</h3>
             <div class="clicks">
-            <a href="challenge.html">Table Here</a>
-            <a href="challenge-card.html">Card Here</a>
+                <a href="challenge.html">Table Here</a>
+                <a href="challenge-card.html">Card Here</a>
             </div>
         </div>
     </div>
 
+    <footer>
+        <p>Al-Quran Web created by Vallian</p>
+    </footer>
+
+   
+    <script>
+        let prevScrollPos = window.pageYOffset;
+
+        window.onscroll = function () {
+            let currentScrollPos = window.pageYOffset;
+            const navbar = document.getElementById("nav");
+
+            if (prevScrollPos > currentScrollPos) {
+                navbar.style.top = "0";
+            } else {
+                navbar.style.top = "-10vh"; // Sesuaikan dengan tinggi navbar
+            }
+
+            prevScrollPos = currentScrollPos;
+        }
+    </script>
 </body>
 
 </html>
