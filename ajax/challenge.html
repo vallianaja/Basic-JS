@@ -30,14 +30,15 @@
             width: 100vw;
             padding: 0px 110px 110px 110px;
             background: #000000;
-            color: #ffffff;
+            color: #000000;
             display: flex;
             flex-direction: column;
         }
 
         thead th {
             padding: 20px 5px;
-            border: 2px solid #ffffff;
+            border: 2px solid #034A10;
+            background: #ffffff;
             border-radius: 4px;
         }
 
@@ -60,11 +61,14 @@
 
         .tableIsi {
             padding: 5px;
-            border: 1px solid #ffffff;
+            background: #ffffff;
+            border: 1px solid #034A10;
         }
 
         .tableRecite {
-            padding: 5px;
+            padding: 3px;
+            background: #000000;
+            border-radius: 10000px;
         }
 
         .back-button a {
@@ -157,7 +161,9 @@
                 tempat.textContent = el.place
                 tempat.classList.add('tableIsi')
 
-                const recitation = document.createElement('audio')
+                const tdRecite = document.createElement('td');
+                tdRecite.classList.add('tableIsi')
+                const recitation = document.createElement('audio');
                 recitation.src = el.recitation
                 recitation.controls = true
                 recitation.loop = true
@@ -173,7 +179,8 @@
                 row.appendChild(numJumlah);
                 row.appendChild(numSurah);
                 row.appendChild(tempat);
-                row.appendChild(recitation);
+                row.appendChild(tdRecite);
+                tdRecite.appendChild(recitation);
                 row.appendChild(type);
             });
         }))
